@@ -11,8 +11,19 @@ namespace BookWormApi.Models
     {
         #region Properties
 
+        /// <summary>
+        /// The original request to save
+        /// </summary>
         public TextParsingInput Request { get; set; }
+
+        /// <summary>
+        /// The response in case it was a statistics call
+        /// </summary>
         public TextStatistics Statistics { get; set; }
+
+        /// <summary>
+        /// The response in case it was a sorting call
+        /// </summary>
         public string Response { get; set; }
 
         #endregion
@@ -45,6 +56,10 @@ namespace BookWormApi.Models
 
         #region Overrides
 
+        /// <summary>
+        /// Converts the response to Json
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);

@@ -12,11 +12,18 @@ using System.Threading.Tasks;
 
 namespace BookWormApi.Services
 {
+    /// <summary>
+    /// This class should save all request/response pairs to S3
+    /// </summary>
     public class S3Persistence
     {
         string BucketName { get; set; }
         IAmazonS3 S3Client { get; set; }
 
+        /// <summary>
+        /// Creates a new S3 persistance class
+        /// </summary>
+        /// <param name="s3Client"></param>
         public S3Persistence(IAmazonS3 s3Client)
         {
             S3Client = s3Client;
@@ -29,6 +36,11 @@ namespace BookWormApi.Services
             
         }
         
+        /// <summary>
+        /// Saves the request/response pair to S3
+        /// </summary>
+        /// <param name="requestResponse"></param>
+        /// <returns></returns>
         public async Task SaveRequest(PersistedRequestResponse requestResponse)
         {
             var seekableStream = new MemoryStream();

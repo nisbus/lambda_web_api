@@ -20,6 +20,11 @@ namespace BookWormApi.Controllers
 
         #region CTOR
 
+        /// <summary>
+        /// The controller to start up for service requests
+        /// </summary>
+        /// <param name="s3Client">This client should save the requests and 
+        /// responses to S3 Http enabled bucket but I didn't have time to finish it</param>
         public TextParsingController(IAmazonS3 s3Client)
         {
             _Persister = new S3Persistence(s3Client);
